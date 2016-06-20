@@ -16,7 +16,7 @@ end
 # Using the HN search API to search for specifc URLs at the command
 # line.
 def search(search_url)
-    params = { :restrictSearchableAttributes => 'url', :query => search_url }
+    params = { :restrictSearchableAttributes => 'url', :query => search_url, :typoTolerance => false }
     hn_search_url = URI('http://hn.algolia.com/api/v1/search')
     hn_search_url.query = URI.encode_www_form(params)
     response = Net::HTTP.get_response(hn_search_url)
